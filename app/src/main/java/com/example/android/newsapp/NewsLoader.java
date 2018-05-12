@@ -36,9 +36,6 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
      */
     @Override
     public List<News> loadInBackground() {
-//        if (urls.length < 1 || urls[0] == null) {
-//            return null;
-//        }
         if (mUrl == null) {
             Log.v("In loadInBackground","in the loop");
             return null;
