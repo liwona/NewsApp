@@ -47,12 +47,220 @@ public class QueryUtils {
         URL url = createUrl(requestUrl);
         Log.v("In fetchNewsData","before they're returned");
         // Perform HTTP request to the URL and receive a JSON response back
-        String jsonResponse = null;
-        try {
-            jsonResponse = makeHttpRequest(url);
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
-        }
+        String jsonResponse = "{\n" +
+                "   \"response\":{\n" +
+                "      \"status\":\"ok\",\n" +
+                "      \"userTier\":\"developer\",\n" +
+                "      \"total\":410,\n" +
+                "      \"startIndex\":1,\n" +
+                "      \"pageSize\":15,\n" +
+                "      \"currentPage\":1,\n" +
+                "      \"pages\":28,\n" +
+                "      \"orderBy\":\"newest\",\n" +
+                "      \"results\":[\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/12/premier-league-farewells-final-day-rooney-toure-crouch-shaqiri\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-12T14:25:30Z\",\n" +
+                "            \"webTitle\":\"Premier League farewells: six players who may say goodbye on the final day\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/12/premier-league-farewells-final-day-rooney-toure-crouch-shaqiri\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/12/premier-league-farewells-final-day-rooney-toure-crouch-shaqiri\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/blog/2018/may/12/premier-league-stasis-compelling-narrative-2017-18\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-12T07:30:24Z\",\n" +
+                "            \"webTitle\":\"Premier League of stasis still has a compelling magic all of its own | Barney Ronay\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/blog/2018/may/12/premier-league-stasis-compelling-narrative-2017-18\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/blog/2018/may/12/premier-league-stasis-compelling-narrative-2017-18\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/11/gold-keepers-why-premier-league-will-only-get-richer\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-11T16:54:45Z\",\n" +
+                "            \"webTitle\":\"Gold keepers: why the Premier League clubs will get only richer\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/11/gold-keepers-why-premier-league-will-only-get-richer\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/11/gold-keepers-why-premier-league-will-only-get-richer\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/live/2018/may/11/premier-league-final-day-countdown-play-offs-and-more-friday-football-live\",\n" +
+                "            \"type\":\"liveblog\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-11T16:27:48Z\",\n" +
+                "            \"webTitle\":\"Premier League final day countdown and more: Friday football – as it happened\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/live/2018/may/11/premier-league-final-day-countdown-play-offs-and-more-friday-football-live\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/live/2018/may/11/premier-league-final-day-countdown-play-offs-and-more-friday-football-live\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/blog/2018/may/11/farewell-yaya-toure-manchester-city-midfielder-premier-league\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-11T16:06:34Z\",\n" +
+                "            \"webTitle\":\"Farewell then Yaya Touré, Manchester City’s clanking midfield giant | Barney Ronay\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/blog/2018/may/11/farewell-yaya-toure-manchester-city-midfielder-premier-league\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/blog/2018/may/11/farewell-yaya-toure-manchester-city-midfielder-premier-league\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/10/arsene-wenger-european-super-league-premier-league-arsenal\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-10T21:33:12Z\",\n" +
+                "            \"webTitle\":\"Arsène Wenger: European super league will force Premier League midweek\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/10/arsene-wenger-european-super-league-premier-league-arsenal\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/10/arsene-wenger-european-super-league-premier-league-arsenal\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/live/2018/may/10/west-ham-united-v-manchester-united-premier-league-live\",\n" +
+                "            \"type\":\"liveblog\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-10T21:01:04Z\",\n" +
+                "            \"webTitle\":\"West Ham United 0-0 Manchester United: Premier League – as it happened\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/live/2018/may/10/west-ham-united-v-manchester-united-premier-league-live\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/live/2018/may/10/west-ham-united-v-manchester-united-premier-league-live\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/10/west-ham-manchester-united-premier-league-match-report\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-10T20:59:38Z\",\n" +
+                "            \"webTitle\":\"Tempers flare as Manchester United seal second with draw at West Ham\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/10/west-ham-manchester-united-premier-league-match-report\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/10/west-ham-manchester-united-premier-league-match-report\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/10/chairman-owners-swansea-blame-for-decline\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-10T19:09:22Z\",\n" +
+                "            \"webTitle\":\"Chairman and absentee owners must take blame for Swansea’s decline | Stuart James\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/10/chairman-owners-swansea-blame-for-decline\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/10/chairman-owners-swansea-blame-for-decline\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/10/carlos-carvalhal-set-to-lose-swansea-job-after-season-ends\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-10T10:16:18Z\",\n" +
+                "            \"webTitle\":\"Carlos Carvalhal set to lose Swansea job after season ends\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/10/carlos-carvalhal-set-to-lose-swansea-job-after-season-ends\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/10/carlos-carvalhal-set-to-lose-swansea-job-after-season-ends\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/10/huddersfield-stay-up-premier-league-david-wagner-money\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-10T10:07:24Z\",\n" +
+                "            \"webTitle\":\"Huddersfield staying up is Premier League’s greatest survival story\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/10/huddersfield-stay-up-premier-league-david-wagner-money\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/10/huddersfield-stay-up-premier-league-david-wagner-money\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/09/chelsea-huddersfield-premier-league-match-report\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-10T06:11:16Z\",\n" +
+                "            \"webTitle\":\"Huddersfield seal Premier League survival and dent Chelsea's ambitions\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/09/chelsea-huddersfield-premier-league-match-report\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/09/chelsea-huddersfield-premier-league-match-report\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/blog/2018/may/09/spurs-goodbye-wembley-european-mission-accomplished\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-09T22:11:29Z\",\n" +
+                "            \"webTitle\":\"Spurs can say goodbye to Wembley with Champions League mission accomplished | Amy Lawrence\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/blog/2018/may/09/spurs-goodbye-wembley-european-mission-accomplished\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/blog/2018/may/09/spurs-goodbye-wembley-european-mission-accomplished\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/live/2018/may/09/chelsea-v-huddersfield-spurs-v-newcastle-and-more-premier-league-clockwatch-live\",\n" +
+                "            \"type\":\"liveblog\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-09T21:17:55Z\",\n" +
+                "            \"webTitle\":\"Chelsea 1-1 Huddersfield, Spurs 1-0 Newcastle and more: Premier League clockwatch – as it happened\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/live/2018/may/09/chelsea-v-huddersfield-spurs-v-newcastle-and-more-premier-league-clockwatch-live\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/live/2018/may/09/chelsea-v-huddersfield-spurs-v-newcastle-and-more-premier-league-clockwatch-live\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         },\n" +
+                "         {\n" +
+                "            \"id\":\"football/2018/may/09/manchester-city-brighton-premier-league-match-report\",\n" +
+                "            \"type\":\"article\",\n" +
+                "            \"sectionId\":\"football\",\n" +
+                "            \"sectionName\":\"Football\",\n" +
+                "            \"webPublicationDate\":\"2018-05-09T21:05:47Z\",\n" +
+                "            \"webTitle\":\"Manchester City shatter Premier League records in win over Brighton\",\n" +
+                "            \"webUrl\":\"https://www.theguardian.com/football/2018/may/09/manchester-city-brighton-premier-league-match-report\",\n" +
+                "            \"apiUrl\":\"https://content.guardianapis.com/football/2018/may/09/manchester-city-brighton-premier-league-match-report\",\n" +
+                "            \"isHosted\":false,\n" +
+                "            \"pillarId\":\"pillar/sport\",\n" +
+                "            \"pillarName\":\"Sport\"\n" +
+                "         }\n" +
+                "      ]\n" +
+                "   }\n" +
+                "}";
+//        try {
+//            jsonResponse = makeHttpRequest(url);
+//        } catch (IOException e) {
+//            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
+//        }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
         List<News> news = extractFeatureFromJson(jsonResponse);
@@ -158,7 +366,8 @@ public class QueryUtils {
             // Parse the response and build up a list of News objects with the corresponding data.
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
 
-            JSONArray newsArray = baseJsonResponse.getJSONArray("results");
+            JSONObject newsObject = baseJsonResponse.getJSONObject("response");
+            JSONArray newsArray = newsObject.getJSONArray("results");
 
             for (int i=0; i<=newsArray.length() - 1; i++) {
                 JSONObject currentNews = newsArray.getJSONObject(i);
@@ -170,17 +379,17 @@ public class QueryUtils {
                 String webPublicationDate = currentNews.getString("webPublicationDate");
 
                 // Extract the value for the key called "webTitle"
-                String webTitle = currentNews.getString("time");
+                String webTitle = currentNews.getString("webTitle");
 
-                // Extract the value for the key called "author"
-                String author = currentNews.getString("author");
+//                // Extract the value for the key called "author"
+//                String author = currentNews.getString("author");
 
                 // Extract the value for the key called "webUrl"
                 String webUrl = currentNews.getString("webUrl");
 
                 // Create a new {@link Earthquake} object with the magnitude, location, time,
                 // and url from the JSON response
-                News nextNews = new News(webTitle, sectionName, webPublicationDate, author, webUrl);
+                News nextNews = new News(webTitle, sectionName, webPublicationDate, "", webUrl);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 news.add(nextNews);
