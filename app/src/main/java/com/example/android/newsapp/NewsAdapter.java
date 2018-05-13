@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,18 +59,17 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Find the TextView with view ID author
         TextView authorView = (TextView) listItemView.findViewById(R.id.author);
         String author = currentNews.getAuthor();
-        authorView.setText(author);
-
-
+        if (author.isEmpty()){
+            authorView.setVisibility(View.GONE);
+        } else {
+            authorView.setText("Author: " + author);
+        }
 
         // Find the TextView with view ID author
         TextView dateView = (TextView) listItemView.findViewById(R.id.published_date);
         String date = currentNews.getPublicationDate();
         String newDate = getDate(date);
         dateView.setText(newDate);
-
-
-
 
         return listItemView;
     }
