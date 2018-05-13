@@ -173,15 +173,20 @@ public class QueryUtils {
                 // Extract the value for the key called "webTitle"
                 String webTitle = currentNews.getString("webTitle");
 
-//                // Extract the value for the key called "author"
-//                String author = currentNews.getString("author");
+                String author = "";
+                // Extract the value for the key called "author"
+                JSONArray tags = currentNews.getJSONArray("tags");
+                if (tags != null && tags.length() > 0) {
+                    JSONObject newsTags = tags.getJSONObject(0);
+                    author = newsTags.getString("webTitle");
+                }
 
                 // Extract the value for the key called "webUrl"
                 String webUrl = currentNews.getString("webUrl");
 
                 // Create a new {@link Earthquake} object with the magnitude, location, time,
                 // and url from the JSON response
-                News nextNews = new News(webTitle, sectionName, webPublicationDate, "", webUrl);
+                News nextNews = new News(webTitle, sectionName, webPublicationDate, author, webUrl);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 news.add(nextNews);
@@ -191,7 +196,7 @@ public class QueryUtils {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the news JSON results", e);
         }
 
         // Return the list of earthquakes

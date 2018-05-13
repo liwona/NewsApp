@@ -10,7 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class NewsAdapter extends ArrayAdapter<News> {
 
@@ -48,8 +52,44 @@ public class NewsAdapter extends ArrayAdapter<News> {
         String section = currentNews.getSection();
         sectionView.setText(section);
 
+        // Find the TextView with view ID title
+        TextView titleView = (TextView) listItemView.findViewById(R.id.title);
+        String title = currentNews.getTitle();
+        titleView.setText(title);
+
+        // Find the TextView with view ID author
+        TextView authorView = (TextView) listItemView.findViewById(R.id.author);
+        String author = currentNews.getAuthor();
+        authorView.setText(author);
+
+
+
+        // Find the TextView with view ID author
+        TextView dateView = (TextView) listItemView.findViewById(R.id.published_date);
+        String date = currentNews.getPublicationDate();
+        String newDate = getDate(date);
+        dateView.setText(newDate);
+
+
+
 
         return listItemView;
     }
+
+    private String getDate(String oldDate) {
+        String date_s = oldDate;
+        SimpleDateFormat dt = new SimpleDateFormat("yyyyy-MM-dd'T'hh:mm:ss");
+        Date date = null;
+        try {
+            date = dt.parse(date_s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat dt1 = new SimpleDateFormat("dd MMMM yyyy, h:mm a", Locale.US);
+        System.out.println(dt1.format(date));
+        return dt1.format(date);
+    }
 }
+
+
 
