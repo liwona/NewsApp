@@ -36,13 +36,6 @@ public class QueryUtils {
      */
     public static List<News> fetchNewsData(String requestUrl) {
 
-        // making 4 seconds delay in the app to be able to see ProgressBar
-//        try {
-//            Thread.sleep(4000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
         // Create URL object
         URL url = createUrl(requestUrl);
         Log.v("In fetchNewsData","before they're returned");
