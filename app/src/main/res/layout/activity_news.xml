@@ -11,24 +11,26 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.--><!-- Layout for a list of news -->
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     tools:context="com.example.android.newsapp.NewsActivity">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/welcome"
-        android:gravity="center"
-        android:padding="10dp"/>
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        android:id="@+id/welcome"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/welcome">
 
         <ListView
             android:id="@+id/list"
@@ -36,8 +38,7 @@
             android:layout_height="match_parent"
             android:dividerHeight="1dp"
             android:orientation="vertical"
-            android:background="@color/background_color"
-            />
+            android:background="@color/background_color" />
 
         <!-- Empty view is only visible when the list has no items. -->
         <TextView
@@ -57,4 +58,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -23,7 +23,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderCallbacks <
 
     /** URL for news data from the Guardian*/
     private static final String GUARDIAN_REQUEST_URL =
-            "http://content.guardianapis.com/search?tag=football%2Fpremierleague&from-date=2018-01-01&show-tags=contributor&page-size=20&api-key=45a13215-127c-4174-b72f-ae7aa38cce0e";
+            "http://content.guardianapis.com/search?tag=football%2Fpremierleague&from-date=2018-01-01&show-tags=contributor&page-size=20&api-key=test";
 
     /** Adapter for the list of news */
     private NewsAdapter mAdapter;
